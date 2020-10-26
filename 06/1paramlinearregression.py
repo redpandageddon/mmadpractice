@@ -61,8 +61,8 @@ print(theta)
 test = np.ones((2,2))
 test[0][1] = 2.72
 test[1][1] = 3.14
-asd = predict(test, theta)
-print(asd)
+test_prediction = predict(test, theta)
+print(test_prediction)
 
 x = np.arange(min(X), max(X))
 plt.plot(x, theta[1]*x.ravel() + theta[0], 'g--')

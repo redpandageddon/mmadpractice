@@ -58,17 +58,17 @@ X_ones = np.c_[np.ones((X.shape[0], 1)), X]
 y = price
 theta = np.matrix('[1; 2; 3]')
 
-asd1 = compute_cost(X_ones, y, theta)
-print('cost -> ' + str( asd1 ))
+primary_cost = compute_cost(X_ones, y, theta)
+print('cost -> ' + str( primary_cost ))
 
 theta = gradient_descent(X_ones, y, 0.00000001, 1000)
 print('weights:')
 print(theta)
 
-asd2 = compute_cost(X_ones, y, theta)
-print('cost -> ' + str( asd2 ))
+new_cost = compute_cost(X_ones, y, theta)
+print('cost -> ' + str( new_cost ))
 
-print(asd1 - asd2)
+print(primary_cost - new_cost)
 
 test = np.ones((2,3))
 test[0][1] = 272000

@@ -1,13 +1,9 @@
 import numpy as np
 
 def dist(A, B, N):
-  temp = 0
-  
-  for i in range(N):
-      temp = ((A[i]-B[i])*(A[i]-B[i])) + temp
+    diff = (A - B)**2
 
-  r = np.sqrt(temp)
-  return r
+    return np.sqrt(sum(diff.ravel())) 
 
 
 def class_of_each_point(X, centers):
@@ -22,7 +18,7 @@ def class_of_each_point(X, centers):
   return np.argmin(distances, axis=1)
 
 
-def curse(k,X):
+def clasterize(k,X):
     m = X.shape[0]
     n = X.shape[1]
 
@@ -45,7 +41,7 @@ def curse(k,X):
 
 def kmeans(k, X):
   while True:
-     centers = curse(k,X)
+     centers = clasterize(k,X)
      if check(X,centers)==True:
          break;
   return centers

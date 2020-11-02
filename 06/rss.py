@@ -1,14 +1,5 @@
 import numpy as np
-
-def compute_cost(X, y, theta):
-    m = len(y)
-    pred = X.dot(theta)
-    cost = (1/ 2 * m) * np.sum(np.square(pred - y)) 
-    
-    return cost
-
-def predict(X, theta):
-    return np.dot(X, theta)
+from fns import compute_cost, gradient_descent, predict
 
 data = np.matrix(np.loadtxt('ex1data2.txt', delimiter=','))
 X = data[:, 0:2]

@@ -1,16 +1,6 @@
 import numpy as np
 import math
 
-def returnIndexOfMin(array):
-    indexOfMin = 0
-    a = array[0]
-    for i in range(len(array)):
-        if array[i] < a:
-            a = array[i]
-            indexOfMin = i
-    
-    return indexOfMin
-
 def k_nearest(X, k, obj):
     sub_X=X[:,[0,1]]
     distances=np.zeros(sub_X.shape[0])
@@ -18,7 +8,7 @@ def k_nearest(X, k, obj):
         distances[i]= float(dist(sub_X[i],obj))
     randomArray=np.zeros(k)
     for i in range(k):
-            j=returnIndexOfMin(distances)
+            j = np.argmin(distances)
             randomArray[i] = X[j,2]
             distances[j]= math.inf
             

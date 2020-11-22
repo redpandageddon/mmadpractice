@@ -13,7 +13,11 @@ th1 = th_set['Theta1']
 th2 = th_set['Theta2']
 
 m = x_axis.shape[0]
-indexes = np.random.permutation(m)
+
+def random(m):
+   return np.random.permutation(m)
+
+indexes = random(m)
 x = np.zeros((100,x_axis.shape[1]))
 
 for i in range(100):
@@ -29,7 +33,7 @@ q = (pre == y_axis.ravel())
 res = np.mean(np.double(q))
 print('Accurasy: ' + str(res * 100) + '%%')
 
-rp = np.random.permutation(m)
+rp = random(m)
 plt.figure()
 for i in range(5):
      X2 = x_axis[rp[i],:]

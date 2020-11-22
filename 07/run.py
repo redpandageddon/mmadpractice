@@ -25,7 +25,7 @@ pre = predict(x_axis, th1, th2)
 y_axis.ravel()
 
 q = (pre == y_axis.ravel())
-print(q)
+
 res = np.mean(np.double(q))
 print('Accurasy: ' + str(res * 100) + '%%')
 

@@ -41,7 +41,7 @@ for i in range(5):
      plt.close()
      
 mistake = np.where(pre != y_axis.ravel())[0]
-qwerty = np.zeros((100,x_axis.shape[1]))
+random_digits = np.zeros((100,x_axis.shape[1]))
 for i in range(100):
-    qwerty[i] = x_axis[mistake[i]]
-displayData(qwerty)
+    random_digits[i] = x_axis[mistake[i]]
+displayData(random_digits)

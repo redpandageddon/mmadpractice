@@ -7,6 +7,4 @@ def predict(x, theta1, theta2):
     a2 = sigmoid(np.dot(a1, theta1.T))
     a3 = np.c_[np.ones(a2.shape[0]), a2]
     tmp = sigmoid(np.dot(a3, theta2.T))
-    res = np.argmax(tmp, axis=1)+1     
-    return res
-    
+    return np.argmax(tmp, axis=1)+1     

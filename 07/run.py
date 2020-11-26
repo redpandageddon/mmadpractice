@@ -7,45 +7,43 @@ from predict import predict
 test_set = sio.loadmat('test_set.mat')
 th_set = sio.loadmat('weights.mat')
 
-x_axis = test_set['X']
-y_axis = np.int64(test_set['y'])
+X_test = test_set['X']
+y_test = np.int64(test_set['y'])
 th1 = th_set['Theta1']
 th2 = th_set['Theta2']
 
-m = x_axis.shape[0]
+m = X_test.shape[0]
 
 def random(m):
    return np.random.permutation(m)
 
 indexes = random(m)
-x = np.zeros((100,x_axis.shape[1]))
+x = np.zeros((100,X_test.shape[1]))
 
 for i in range(100):
-    x[i] = x_axis[indexes[i]]
+    x[i] = X_test[indexes[i]]
     
 displayData(x)
 
-pre = predict(x_axis, th1, th2)
-y_axis.ravel()
+pre = predict(X_test, th1, th2)
+y_test.ravel()
 
-q = (pre == y_axis.ravel())
-
-res = np.mean(np.double(q))
-print('Accurasy: ' + str(res * 100) + '%%')
+accuracy = np.mean(np.double(pre == y_test.ravel()))
+print('Accuracy: ' + str(accuracy * 100) + '%%')
 
 rp = random(m)
 plt.figure()
 for i in range(5):
-     X2 = x_axis[rp[i],:]
-     X2 = np.matrix(x_axis[rp[i]])
+     X2 = X_test[rp[i],:]
+     X2 = np.matrix(X_test[rp[i]])
      pred = predict(X2.getA(), th1, th2)
      pred = np.squeeze(pred)
-     pred_str = 'Neural Network Prediction: %d (digit %d)' % (pred, y_axis[rp[i]])
+     pred_str = 'Neural Network Prediction: %d (digit %d)' % (pred, y_test[rp[i]])
      displayData(X2, pred_str)
      plt.close()
      
-mistake = np.where(pre != y_axis.ravel())[0]
-wrongly_predicted = np.zeros((100,x_axis.shape[1]))
+mistake = np.where(pre != y_test.ravel())[0]
+wrongly_predicted = np.zeros((100,X_test.shape[1]))
 for i in range(100):
-    wrongly_predicted[i] = x_axis[mistake[i]]
+    wrongly_predicted[i] = X_test[mistake[i]]
 displayData(wrongly_predicted)

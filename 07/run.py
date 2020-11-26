@@ -16,14 +16,8 @@ m = X_test.shape[0]
 
 def random(m):
    return np.random.permutation(m)
-
-indexes = random(m)
-x = np.zeros((100,X_test.shape[1]))
-
-for i in range(100):
-    x[i] = X_test[indexes[i]]
     
-displayData(x)
+displayData(np.random.choice(X_test, 100, replace = False))
 
 pre = predict(X_test, th1, th2)
 y_test.ravel()

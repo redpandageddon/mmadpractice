@@ -2,10 +2,10 @@ import numpy as np
 import math
 
 def k_nearest(X, k, obj):
-    sub_X=X[:,[0,1]]
+    sub_X=X[:, :-1]
     distances=np.zeros(sub_X.shape[0])
     for i in range(sub_X.shape[0]):
-        distances[i]= float(dist(sub_X[i],obj))
+        distances = [dist(item, obj) for item in sub_X]
     randomArray=np.zeros(k)
     for i in range(k):
             j = np.argmin(distances)
@@ -23,4 +23,8 @@ def k_nearest(X, k, obj):
 
 def dist(p1, p2):
     return math.sqrt(sum((p1 - p2)**2))
+
+
+
+
 

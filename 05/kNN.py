@@ -2,9 +2,9 @@ import numpy as np
 import math
 
 def normalize(arr): 
-    mean = np.mean(arr) 
+    mean = np.mean(arr, axis=0) 
     arr = arr - mean 
-    std = np.std(arr) 
+    std = np.std(arr, axis=0) 
     arr = arr / std 
 return arr
 

@@ -1,8 +1,15 @@
 import numpy as np
 import math
 
+def normalize(arr): 
+    mean = np.mean(arr) 
+    arr = arr - mean 
+    std = np.std(arr) 
+    arr = arr / std 
+return arr
+
 def k_nearest(X, k, obj):
-    sub_X=X[:, :-1]
+    sub_X = normalize(X[:, :-1])
     distances=np.zeros(sub_X.shape[0])
     for i in range(sub_X.shape[0]):
         distances = [dist(item, obj) for item in sub_X]

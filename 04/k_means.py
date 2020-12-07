@@ -1,10 +1,15 @@
 import numpy as np
 
-def dist(A, B, N):
+def dist(A, B):
     diff = (A - B)**2
 
     return np.sqrt(sum(diff.ravel())) 
 
+
+def XemmingDistance(A, B)
+    result = (A - B)
+   
+    return np.abs(result.ravel())
 
 def class_of_each_point(X, centers):
   m = len(X)

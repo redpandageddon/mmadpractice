@@ -10,12 +10,10 @@ return arr
 
 def k_nearest(X, k, obj):
     sub_X = normalize(X[:, :-1])
-    distances=np.zeros(sub_X.shape[0])
-    for i in range(sub_X.shape[0]):
         distances = [dist(item, obj) for item in sub_X]
         
     index = np.argsort(distances, axis = 0)
-    nearest_classes=[X[index[item],2] for item in range(k)]
+    nearest_classes = X[index[:k], 2]
     
     unique, counts = np.unique(nearest_classes, return_counts=True)
     object_class = unique[np.argmax(counts)]

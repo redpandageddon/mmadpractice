@@ -24,3 +24,10 @@ def EuclidDistance(A, B):
     diff = (A - B)**2
 
     return np.sqrt(sum(diff.ravel()))
+
+def MinkovDistance(A, B, p, r):
+    p = 2
+    r = 2
+    result = (A - B)
+    
+    return np.sum(abs(result.ravel()) ** p) ** (1/r)

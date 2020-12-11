@@ -21,8 +21,3 @@ def k_nearest(X, k, obj):
 
 def dist(p1, p2):
     return math.sqrt(sum((p1 - p2)**2))
-
-
-
-
-

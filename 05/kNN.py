@@ -10,7 +10,7 @@ def normalize(arr):
 
 def k_nearest(X, k, obj):
     sub_X = normalize(X[:, :-1])
-        distances = [dist(item, obj) for item in sub_X]
+    distances = [dist(item, obj) for item in sub_X]
         
     index = np.argsort(distances, axis = 0)
     nearest_classes = X[index[:k], 2]

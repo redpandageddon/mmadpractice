@@ -6,7 +6,7 @@ def normalize(arr):
     arr = arr - mean 
     std = np.std(arr, axis=0) 
     arr = arr / std 
-return arr
+    return arr
 
 def k_nearest(X, k, obj):
     sub_X = normalize(X[:, :-1])

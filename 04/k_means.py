@@ -1,6 +1,6 @@
 import numpy as np
 
-def dist(A, B):
+def dist(A, B, N):
     diff = (A - B)**2
     return np.sqrt(sum(diff.ravel())) 
 

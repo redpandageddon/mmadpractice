@@ -6,7 +6,7 @@ def dist(A, B, N):
 
 def xemmingdist(A, B):
     result = (A - B)
-    return np.abs(result.ravel())
+    return np.sum(abs(result.ravel()))
 
 def class_of_each_point(X, centers):
   m = len(X)
@@ -15,8 +15,8 @@ def class_of_each_point(X, centers):
   distances = np.zeros((m, k))
   for i in range(m):
     for j in range(k):
-      distances[i, j] = dist(centers[j], X[i], np.ndim(X))
-
+      #distances[i, j] = dist(centers[j], X[i], np.ndim(X))
+       distances[i, j] = xemmingdist(centers[j], X[i])
   return np.argmin(distances, axis=1)
 
 

@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
 from fns import compute_cost, gradient_descent, predict
 from matplotlib import rc
 font = {'family': 'Verdana', 'weight': 'normal'}
